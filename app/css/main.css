@@ -356,4 +356,75 @@ body {
   overflow: hidden;
 }
 
+.scroll-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  overflow-y: scroll;
+  /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
+}
+
+#cover-bg {
+  background-image: url("../images/cover-bg.jpg");
+}
+
+#cover-logo {
+  top: 40px;
+  left: 37px;
+  width: 235px;
+  height: 89px;
+  background-image: url("../images/logo.png");
+}
+
+#earth {
+  top: 128px;
+  left: 22px;
+  width: 608px;
+  height: 564px;
+  background-image: url("../images/earth.png");
+}
+
+#slogan {
+  top: 295px;
+  left: 58px;
+  width: 541px;
+  height: 237px;
+  background-image: url("../images/slogan.png");
+}
+
+#cover-car {
+  top: 496px;
+  left: 52px;
+  width: 557px;
+  height: 404px;
+  background-image: url("../images/car.png");
+}
+
+#start-btn {
+  top: 900px;
+  left: 163px;
+  width: 312px;
+  height: 99px;
+  background-image: url("../images/start-btn.png");
+}
+
+#rule-btn {
+  top: 43px;
+  left: 367px;
+  width: 232px;
+  height: 74px;
+  background-image: url("../images/rule-btn.png");
+}
+
+#rule {
+  background: rgba(0, 0, 0, 0.8);
+}
+
 /*# sourceMappingURL=main.css.map */

@@ -136,3 +136,76 @@ body {
     @include background-size(cover);
     overflow: hidden;
 }
+
+.scroll-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include background-size(cover);
+    overflow-y: scroll; /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
+}
+
+#cover-bg {
+    background-image: url('../images/cover-bg.jpg');
+}
+
+#cover-logo {
+    top: 40px;
+    left: 37px;
+    $logo: '../images/logo.png';
+    width: image-width($logo);
+    height: image-height($logo);
+    background-image: url($logo);
+}
+
+#earth {
+    top: 128px;
+    left: 22px;
+    $earth: '../images/earth.png';
+    width: image-width($earth);
+    height: image-height($earth);
+    background-image: url($earth);
+}
+
+#slogan {
+    top: 295px;
+    left: 58px;
+    $slogan: '../images/slogan.png';
+    width: image-width($slogan);
+    height: image-height($slogan);
+    background-image: url($slogan);
+}
+
+#cover-car {
+    top: 496px;
+    left: 52px;
+    $car: '../images/car.png';
+    width: image-width($car);
+    height: image-height($car);
+    background-image: url($car);
+}
+
+#start-btn {
+    top: 900px;
+    left: 163px;
+    $start-btn: '../images/start-btn.png';
+    width: image-width($start-btn);
+    height: image-height($start-btn);
+    background-image: url($start-btn);
+}
+
+#rule-btn {
+    top: 43px;
+    left: 367px;
+    $rule-btn: '../images/rule-btn.png';
+    width: image-width($rule-btn);
+    height: image-height($rule-btn);
+    background-image: url($rule-btn);
+}
+
+#rule {
+    background: rgba(0, 0, 0, 0.8);
+}
