@@ -63,7 +63,7 @@ html, body {
  定义变量
  ========================================================================== */
 $main-bgcolor: #000;
-$main-color: #000;
+$main-color: #fff;
 $main-red: #c50000;
 $main-blue: #31dbff;
 
@@ -76,7 +76,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: $main-bgcolor;
-    color: $main-blue;
+    color: $main-color;
     overflow: hidden;
     font: {
         size: 24px;
@@ -208,4 +208,90 @@ body {
 
 #rule {
     background: rgba(0, 0, 0, 0.8);
+}
+
+#rule-content {
+    top: 80px;
+    left: 91px;
+    $rule: '../images/rule.png';
+    width: image-width($rule);
+    height: image-height($rule);
+    background-image: url($rule);
+}
+
+#close-rule {
+    top: -33px;
+    right: -32px;
+    $close: '../images/close-btn.png';
+    width: image-width($close);
+    height: image-height($close);
+    background-image: url($close);
+}
+
+#place-bg {
+    top: 0;
+    left: 0;
+    $place-bg: '../images/place-bg.jpg';
+    width: image-width($place-bg);
+    height: image-height($place-bg);
+    background-image: url($place-bg);
+}
+
+#mcar {
+    top: 27px;
+    left: 375px;
+    $mcar: '../images/mcar.png';
+    width: image-width($mcar);
+    height: image-height($mcar);
+    background-image: url($mcar);
+}
+
+// dice sprite 设置
+$dice-layout:smart;
+$dice-spacing:10px;
+$dice-sprite-dimensions: true;
+@import "dice/*.png";
+@include  all-dice-sprites;
+
+#dice-container {
+    top: 257px;
+    left: 123px;
+    width: 399px;
+    height: 512px;
+    background: rgba(0, 0, 0, 0.76);
+    @include border-radius(20px);
+}
+
+#dice-des {
+    position: absolute;
+    top: 34px;
+    width: 100%;
+    text: {
+        align: center;
+    }
+    font: {
+        size: 21px;
+    }
+}
+
+.dice {
+    position: absolute;
+    top: 114px;
+    left: 103px;
+}
+
+// btns sprite 设置
+$btns-layout:smart;
+$btns-spacing:10px;
+$btns-sprite-dimensions: true;
+@import "btns/*.png";
+@include  all-btns-sprites;
+
+#roll-btn {
+    top: 378px;
+    left: 55px;
+}
+
+#cover, #rule, #dice-container {
+    display: none;
 }

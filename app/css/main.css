@@ -291,7 +291,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #000;
-  color: #31dbff;
+  color: #fff;
   overflow: hidden;
   font-size: 24px;
 }
@@ -425,6 +425,124 @@ body {
 
 #rule {
   background: rgba(0, 0, 0, 0.8);
+}
+
+#rule-content {
+  top: 80px;
+  left: 91px;
+  width: 461px;
+  height: 902px;
+  background-image: url("../images/rule.png");
+}
+
+#close-rule {
+  top: -33px;
+  right: -32px;
+  width: 59px;
+  height: 59px;
+  background-image: url("../images/close-btn.png");
+}
+
+#place-bg {
+  top: 0;
+  left: 0;
+  width: 640px;
+  height: 1047px;
+  background-image: url("../images/place-bg.jpg");
+}
+
+#mcar {
+  top: 27px;
+  left: 375px;
+  width: 213px;
+  height: 165px;
+  background-image: url("../images/mcar.png");
+}
+
+.dice-sprite, .dice-dice1, .dice-dice2, .dice-dice3, .dice-dice4, .dice-dice5, .dice-dice6 {
+  background-image: url('../images/dice-s71513b1403.png');
+  background-repeat: no-repeat;
+}
+
+.dice-dice1 {
+  background-position: 0 -1120px;
+  height: 224px;
+  width: 203px;
+}
+
+.dice-dice2 {
+  background-position: 0 -672px;
+  height: 224px;
+  width: 203px;
+}
+
+.dice-dice3 {
+  background-position: 0 -448px;
+  height: 224px;
+  width: 203px;
+}
+
+.dice-dice4 {
+  background-position: 0 -224px;
+  height: 224px;
+  width: 203px;
+}
+
+.dice-dice5 {
+  background-position: 0 -896px;
+  height: 224px;
+  width: 203px;
+}
+
+.dice-dice6 {
+  background-position: 0 0;
+  height: 224px;
+  width: 204px;
+}
+
+#dice-container {
+  top: 257px;
+  left: 123px;
+  width: 399px;
+  height: 512px;
+  background: rgba(0, 0, 0, 0.76);
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+}
+
+#dice-des {
+  position: absolute;
+  top: 34px;
+  width: 100%;
+  text-align: center;
+  font-size: 21px;
+}
+
+.dice {
+  position: absolute;
+  top: 114px;
+  left: 103px;
+}
+
+.btns-sprite, .btns-roll-btn {
+  background-image: url('../images/btns-s8f882c85f1.png');
+  background-repeat: no-repeat;
+}
+
+.btns-roll-btn {
+  background-position: 0 0;
+  height: 93px;
+  width: 291px;
+}
+
+#roll-btn {
+  top: 378px;
+  left: 55px;
+}
+
+#cover, #rule, #dice-container {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */
