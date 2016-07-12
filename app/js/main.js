@@ -5,6 +5,7 @@
 
 // 变量
 var showCover;
+var diceState = 'diceInit'; // 掷色子界面状态
 
 // 预加载
 var sourceArr = [
@@ -73,7 +74,9 @@ new mo.Loader(sourceArr,{
         }
 
         function hideCover() {
-            var coverHide = new TimelineMax();
+            var coverHide = new TimelineMax({
+                onComplete: showGame
+            });
             coverHide.add('coverHideStart')
             .to('#start-btn', 0.5, {autoAlpha: 0, y: 100}, 'coverHideStart')
             .to('#rule-btn', 0.5, {autoAlpha: 0, y: -100}, 'coverHideStart')
@@ -100,6 +103,47 @@ new mo.Loader(sourceArr,{
             ruleClose.to('#rule-content', 0.6, {autoAlpha: 0, y: -1000, ease: Back.easeIn.config(0.6)})
             .to('#rule', 0.4, {autoAlpha: 0}, '-=0.1')
             .set('#rule', {display: 'none'})
+        }
+
+        function showGame() {
+            var gameShow = new TimelineMax({
+                onComplete: showDice
+            });
+            gameShow.set('#game', {display: 'block', autoAlpha: 1})
+            .fromTo('#game', 0.5, {autoAlpha: 0}, {autoAlpha: 1})
+        }
+
+        // 显示掷色子界面
+        function showDice() {
+            if (diceState == 'diceInit') {
+                $('#dice-des').html(''); // 初始将摇色子界面描述清空
+            }
+            var diceShow = new TimelineMax();
+            diceShow.set('#dice-container', {autoAlpha: 1, display: 'block'})
+            .fromTo('#dice-container', 0.6, {autoAlpha: 0, scale: 0}, {autoAlpha: 1, scale: 1, ease: Back.easeOut.config(1.2), force3D: true})
+        }
+
+        $('#roll-btn').on('touchstart', goRoll);
+
+        // 摇色子功能
+        function goRoll() {
+            console.log('11');
+            var diceRoll = new TimelineMax();
+            diceRoll.add('rollStart')
+            .set('#dice1', {autoAlpha: 1}, 'rollStart')
+            .set(['#dice2', '#dice3', '#dice4', '#dice5', '#dice6'], {autoAlpha: 0}, 'rollStart')
+            .set('#dice3', {autoAlpha: 1}, 'rollStart+=0.1')
+            .set(['#dice1', '#dice2', '#dice4', '#dice5', '#dice6'], {autoAlpha: 0}, 'rollStart+=0.1')
+            .set('#dice5', {autoAlpha: 1}, 'rollStart+=0.2')
+            .set(['#dice1', '#dice2', '#dice3', '#dice4', '#dice6'], {autoAlpha: 0}, 'rollStart+=0.2')
+            .set('#dice2', {autoAlpha: 1}, 'rollStart+=0.4')
+            .set(['#dice1', '#dice3', '#dice4', '#dice5', '#dice6'], {autoAlpha: 0}, 'rollStart+=0.4')
+            .set('#dice4', {autoAlpha: 1}, 'rollStart+=0.6')
+            .set(['#dice1', '#dice2', '#dice3', '#dice5', '#dice6'], {autoAlpha: 0}, 'rollStart+=0.6')
+            .set('#dice6', {autoAlpha: 1}, 'rollStart+=0.7')
+            .set(['#dice1', '#dice2', '#dice3', '#dice4', '#dice5'], {autoAlpha: 0}, 'rollStart+=0.7')
+            .set('#dice1', {autoAlpha: 1}, 'rollStart+=0.8')
+            .set(['#dice2', '#dice3', '#dice4', '#dice5', '#dice6'], {autoAlpha: 0}, 'rollStart+=0.8')
         }
 
     });  //Document ready
