@@ -123,12 +123,21 @@ new mo.Loader(sourceArr,{
             .fromTo('#dice-container', 0.6, {autoAlpha: 0, scale: 0}, {autoAlpha: 1, scale: 1, ease: Back.easeOut.config(1.2), force3D: true})
         }
 
+        // 关闭掷色子界面
+        function closeDice() {
+            var diceClose = new TimelineMax({
+                onComplete: showBLG
+            });
+            diceClose.to('#dice-container', 0.6, {autoAlpha: 0, scale: 0, ease: Back.easeIn.config(1.2), force3D: true})
+        }
+
         $('#roll-btn').on('touchstart', goRoll);
 
         // 摇色子功能
         function goRoll() {
-            console.log('11');
-            var diceRoll = new TimelineMax();
+            var diceRoll = new TimelineMax({
+                onComplete: closeDice
+            });
             diceRoll.add('rollStart')
             .set('#dice1', {autoAlpha: 1}, 'rollStart')
             .set(['#dice2', '#dice3', '#dice4', '#dice5', '#dice6'], {autoAlpha: 0}, 'rollStart')
@@ -144,6 +153,110 @@ new mo.Loader(sourceArr,{
             .set(['#dice1', '#dice2', '#dice3', '#dice4', '#dice5'], {autoAlpha: 0}, 'rollStart+=0.7')
             .set('#dice1', {autoAlpha: 1}, 'rollStart+=0.8')
             .set(['#dice2', '#dice3', '#dice4', '#dice5', '#dice6'], {autoAlpha: 0}, 'rollStart+=0.8')
+        }
+
+        // 显示雅典
+        function showYD() {
+            var ydShow = new TimelineMax();
+            ydShow.set('#yd', {autoAlpha: 1, display: 'block'})
+            .fromTo('#yd', 0.5, {autoAlpha: 0}, {autoAlpha: 1})
+        }
+
+        // 隐藏雅典
+        function hideYD() {
+            var ydHide = new TimelineMax({
+                onComplete: showShare
+            });
+            ydHide.to('#yd', 0.4, {autoAlpha: 0})
+            .set('#yd', {display: 'none'})
+        }
+
+        $('#yd-go-share').on('touchstart', hideYD);
+
+        // 显示慕尼黑
+        function showMNH() {
+            var mnhShow = new TimelineMax();
+            mnhShow.set('#mnh', {autoAlpha: 1, display: 'block'})
+            .fromTo('#mnh', 0.5, {autoAlpha: 0}, {autoAlpha: 1})
+        }
+
+        // 隐藏慕尼黑
+        function hideMNH() {
+            var mnhHide = new TimelineMax({
+                onComplete: showShare
+            });
+            mnhHide.to('#mnh', 0.4, {autoAlpha: 0})
+            .set('#mnh', {display: 'none'})
+        }
+
+        $('#mnh-go-share').on('touchstart', hideMNH);
+
+        // 显示汉诺威
+        function showHNW() {
+            var hnwShow = new TimelineMax();
+            hnwShow.set('#hnw', {autoAlpha: 1, display: 'block'})
+            .fromTo('#hnw', 0.5, {autoAlpha: 0}, {autoAlpha: 1})
+        }
+
+        // 隐藏汉诺威
+        function hideHNW() {
+            var hnwHide = new TimelineMax({
+                onComplete: showShare
+            });
+            hnwHide.to('#hnw', 0.4, {autoAlpha: 0})
+            .set('#hnw', {display: 'none'})
+        }
+
+        $('#hnw-go-share').on('touchstart', hideHNW);
+
+        // 显示巴黎
+        function showBL() {
+            var blShow = new TimelineMax();
+            blShow.set('#bl', {autoAlpha: 1, display: 'block'})
+            .fromTo('#bl', 0.5, {autoAlpha: 0}, {autoAlpha: 1})
+        }
+
+        // 隐藏巴黎
+        function hideBL() {
+            var blHide = new TimelineMax({
+                onComplete: showDice
+            });
+            blHide.to('#bl', 0.4, {autoAlpha: 0})
+            .set('#bl', {display: 'none'})
+        }
+
+        $('#bl-continue').on('touchstart', hideBL);
+
+        // 显示布拉格
+        function showBLG() {
+            var blgShow = new TimelineMax();
+            blgShow.set('#blg', {autoAlpha: 1, display: 'block'})
+            .fromTo('#blg', 0.5, {autoAlpha: 0}, {autoAlpha: 1})
+        }
+
+        // 隐藏布拉格
+        function hideBLG() {
+            var blgHide = new TimelineMax({
+                onComplete: showDice
+            });
+            blgHide.to('#blg', 0.4, {autoAlpha: 0})
+            .set('#blg', {display: 'none'})
+        }
+
+        $('#blg-continue').on('touchstart', hideBLG);
+
+        function showShare() {
+            var shareShow = new TimelineMax();
+            shareShow.set('#share', {display: 'block', autoAlpha: 1, perspective: 500})
+            .fromTo('#share', 0.4, {autoAlpha: 0}, {autoAlpha: 1})
+            .fromTo('#share-arrow', 0.6, {autoAlpha: 0, y: 100}, {autoAlpha: 1, y: 0}, '-=0.2')
+            .fromTo('#share-content', 0.6, {autoAlpha: 0, z: -300}, {autoAlpha: 1, z: 0}, '-=0.5')
+        }
+
+        function hideShare() {
+            var shareHide = new TimelineMax();
+            shareHide.to(['#share', '#share-arrow', '#share-content'], 0.4, {autoAlpha: 0})
+            .set('#share', {display: 'none'})
         }
 
     });  //Document ready
