@@ -371,6 +371,16 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+#loading-num {
+  position: absolute;
+  top: 45%;
+  width: 100%;
+  z-index: 999;
+  text-align: center;
+  font-size: 56px;
+  color: #fff;
+}
+
 #cover-bg {
   background-image: url("../images/cover-bg.jpg");
 }
