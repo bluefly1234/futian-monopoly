@@ -219,7 +219,7 @@ body {
     background-image: url($rule);
 }
 
-#close-rule {
+#close-rule, #close-right {
     top: -33px;
     right: -32px;
     $close: '../images/close-btn.png';
@@ -292,6 +292,146 @@ $btns-sprite-dimensions: true;
     left: 55px;
 }
 
-#cover, #rule, #dice-container {
+.trans-container {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#yd-content {
+    top: 180px;
+    left: 91px;
+    $yd: '../images/yd.png';
+    width: image-width($yd);
+    height: image-height($yd);
+    background-image: url($yd);
+}
+
+.go-share {
+    position: absolute;
+    bottom: 49px;
+    left: 70px;
+}
+
+#mnh-content {
+    top: 180px;
+    left: 91px;
+    $mnh: '../images/mnh.png';
+    width: image-width($mnh);
+    height: image-height($mnh);
+    background-image: url($mnh);
+}
+
+#hnw-content {
+    top: 230px;
+    left: 91px;
+    $hnw: '../images/hnw.png';
+    width: image-width($hnw);
+    height: image-height($hnw);
+    background-image: url($hnw);
+}
+
+#bl-content {
+    top: 250px;
+    left: 91px;
+    $bl: '../images/bl.png';
+    width: image-width($bl);
+    height: image-height($bl);
+    background-image: url($bl);
+}
+
+.continue {
+    position: absolute;
+    bottom: 67px;
+    left: 105px;
+}
+
+#blg-content {
+    top: 200px;
+    left: 91px;
+    $blg: '../images/blg.png';
+    width: image-width($blg);
+    height: image-height($blg);
+    background-image: url($blg);
+}
+
+#lm-content {
+    top: 170px;
+    left: 91px;
+    $lm-content: '../images/lm.png';
+    width: image-width($lm-content);
+    height: image-height($lm-content);
+    background-image: url($lm-content);
+}
+
+#optiona {
+    top: 346px;
+    left: 86px;
+}
+
+#optionb {
+    top: 438px;
+    left: 86px;
+}
+
+#optionc {
+    top: 530px;
+    left: 86px;
+}
+
+.right {
+    @extend .btns-right;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+
+.wrong {
+    @extend .btns-wrong;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+
+#right-content {
+    top: 330px;
+    left: 91px;
+    $right-content: '../images/right-content.png';
+    width: image-width($right-content);
+    height: image-height($right-content);
+    background-image: url($right-content);
+}
+
+#wrong-content {
+    top: 330px;
+    left: 91px;
+    $wrong-content: '../images/wrong-content.png';
+    width: image-width($wrong-content);
+    height: image-height($wrong-content);
+    background-image: url($wrong-content);
+}
+
+#share-play {
+    bottom: 45px;
+    left: 81px;
+}
+
+#share-arrow {
+    top: 34px;
+    left: 420px;
+    $share-arrow: '../images/share-arrow.png';
+    width: image-width($share-arrow);
+    height: image-height($share-arrow);
+    background-image: url($share-arrow);
+}
+
+#share-content {
+    top: 223px;
+    left: 67px;
+    $share-content: '../images/share-content.png';
+    width: image-width($share-content);
+    height: image-height($share-content);
+    background-image: url($share-content);
+}
+
+#cover, #rule, #game, #dice-container, #yd, #mnh, #hnw, #bl, #blg, #lm, #right-content, #wrong-content, #share {
     display: none;
 }

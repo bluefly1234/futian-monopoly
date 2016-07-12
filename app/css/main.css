@@ -435,7 +435,7 @@ body {
   background-image: url("../images/rule.png");
 }
 
-#close-rule {
+#close-rule, #close-right {
   top: -33px;
   right: -32px;
   width: 59px;
@@ -525,15 +525,63 @@ body {
   left: 103px;
 }
 
-.btns-sprite, .btns-roll-btn {
-  background-image: url('../images/btns-s8f882c85f1.png');
+.btns-sprite, .btns-continue, .btns-go-share, .btns-optiona, .btns-optionb, .btns-optionc, .btns-right, .right, .btns-roll-btn, .btns-share-play, .btns-wrong, .wrong {
+  background-image: url('../images/btns-s5c195e389e.png');
   background-repeat: no-repeat;
 }
 
-.btns-roll-btn {
+.btns-continue {
   background-position: 0 0;
+  height: 77px;
+  width: 249px;
+}
+
+.btns-go-share {
+  background-position: 0 -511px;
+  height: 121px;
+  width: 319px;
+}
+
+.btns-optiona {
+  background-position: 0 -77px;
+  height: 69px;
+  width: 287px;
+}
+
+.btns-optionb {
+  background-position: 0 -146px;
+  height: 69px;
+  width: 287px;
+}
+
+.btns-optionc {
+  background-position: 0 -215px;
+  height: 69px;
+  width: 287px;
+}
+
+.btns-right, .right {
+  background-position: -52px -284px;
+  height: 52px;
+  width: 52px;
+}
+
+.btns-roll-btn {
+  background-position: 0 -418px;
   height: 93px;
   width: 291px;
+}
+
+.btns-share-play {
+  background-position: 0 -336px;
+  height: 82px;
+  width: 304px;
+}
+
+.btns-wrong, .wrong {
+  background-position: 0 -284px;
+  height: 52px;
+  width: 52px;
 }
 
 #roll-btn {
@@ -541,7 +589,135 @@ body {
   left: 55px;
 }
 
-#cover, #rule, #dice-container {
+.trans-container {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#yd-content {
+  top: 180px;
+  left: 91px;
+  width: 461px;
+  height: 678px;
+  background-image: url("../images/yd.png");
+}
+
+.go-share {
+  position: absolute;
+  bottom: 49px;
+  left: 70px;
+}
+
+#mnh-content {
+  top: 180px;
+  left: 91px;
+  width: 461px;
+  height: 678px;
+  background-image: url("../images/mnh.png");
+}
+
+#hnw-content {
+  top: 230px;
+  left: 91px;
+  width: 461px;
+  height: 573px;
+  background-image: url("../images/hnw.png");
+}
+
+#bl-content {
+  top: 250px;
+  left: 91px;
+  width: 461px;
+  height: 454px;
+  background-image: url("../images/bl.png");
+}
+
+.continue {
+  position: absolute;
+  bottom: 67px;
+  left: 105px;
+}
+
+#blg-content {
+  top: 200px;
+  left: 91px;
+  width: 461px;
+  height: 598px;
+  background-image: url("../images/blg.png");
+}
+
+#lm-content {
+  top: 170px;
+  left: 91px;
+  width: 461px;
+  height: 654px;
+  background-image: url("../images/lm.png");
+}
+
+#optiona {
+  top: 346px;
+  left: 86px;
+}
+
+#optionb {
+  top: 438px;
+  left: 86px;
+}
+
+#optionc {
+  top: 530px;
+  left: 86px;
+}
+
+.right {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+}
+
+.wrong {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+}
+
+#right-content {
+  top: 330px;
+  left: 91px;
+  width: 461px;
+  height: 230px;
+  background-image: url("../images/right-content.png");
+}
+
+#wrong-content {
+  top: 330px;
+  left: 91px;
+  width: 461px;
+  height: 350px;
+  background-image: url("../images/wrong-content.png");
+}
+
+#share-play {
+  bottom: 45px;
+  left: 81px;
+}
+
+#share-arrow {
+  top: 34px;
+  left: 420px;
+  width: 165px;
+  height: 194px;
+  background-image: url("../images/share-arrow.png");
+}
+
+#share-content {
+  top: 223px;
+  left: 67px;
+  width: 490px;
+  height: 218px;
+  background-image: url("../images/share-content.png");
+}
+
+#cover, #rule, #game, #dice-container, #yd, #mnh, #hnw, #bl, #blg, #lm, #right-content, #wrong-content, #share {
   display: none;
 }
 
