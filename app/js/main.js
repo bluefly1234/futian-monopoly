@@ -120,7 +120,7 @@ new mo.Loader(sourceArr,{
             }else if (diceState == 'LMBL') {
                 $('#dice-des').html('么么哒，咱们换个帅气的姿势<br>再掷一次，好运哦~'); // 摇到罗马巴黎时显示
             }else if (diceState == 'BLG') {
-                $('#dice-des').html('这是童话城市布拉格，<br>没有什么不可能，Come on'); // 摇到布拉格时显示        
+                $('#dice-des').html('这是童话城市布拉格，<br>没有什么不可能，Come on'); // 摇到布拉格时显示
             }
             var diceShow = new TimelineMax();
             diceShow.set('#dice-container', {autoAlpha: 1, display: 'block'})
@@ -130,7 +130,7 @@ new mo.Loader(sourceArr,{
         // 关闭掷色子界面
         function closeDice() {
             var diceClose = new TimelineMax({
-                onComplete: showBLG
+                onComplete: showLM
             });
             diceClose.to('#dice-container', 0.6, {autoAlpha: 0, scale: 0, ease: Back.easeIn.config(1.2), force3D: true})
         }
@@ -253,6 +253,70 @@ new mo.Loader(sourceArr,{
 
         $('#blg-continue').on('touchstart', hideBLG);
 
+        // 显示罗马
+        function showLM() {
+            var lmShow = new TimelineMax({
+                onComplete: function () {
+                    $('.option').on('touchstart', checkRightWrong);  // 绑定判断对错
+                }
+            });
+            lmShow.set('#lm', {display: 'block', autoAlpha: 1})
+            .fromTo('#lm', 0.5, {autoAlpha: 0}, {autoAlpha: 1})
+        }
+
+        $('.option').on('touchstart', checkRightWrong);
+
+
+
+        function checkRightWrong() {
+            $('.option').off('touchstart'); // 解绑
+            $('.right, .wrong').remove();
+            console.log($(this));
+            if ($(this).attr('id')=='optiona') {
+                $(this).append('<div class="wrong"></div>');
+                showWrongAlert();
+            }else if ($(this).attr('id')=='optionb') {
+                $(this).append('<div class="right"></div>');
+                showRightAlert();
+            }else if ($(this).attr('id')=='optionc') {
+                $(this).append('<div class="wrong"></div>');
+                showWrongAlert();
+            }
+        }
+
+        function showRightAlert() {
+            var rightShow = new TimelineMax();
+            rightShow.set('#right-content', {display: 'block', autoAlpha: 1})
+            .fromTo('#right-content', 0.6, {autoAlpha: 0, y: -200}, {autoAlpha: 1, y: 0, ease: Back.easeOut.config(1.2)})
+        }
+
+        function hideRightAlert() {
+            var rightHide = new TimelineMax({
+                onComplete: showDice
+            });
+            rightHide.to('#right-content', 0.4, {autoAlpha: 0, y: -200, ease: Back.easeIn.config(1.2)})
+            .to('#lm', 0.4, {autoAlpha: 0})
+            .set(['#lm', '#right-content'], {display: 'none'})
+        }
+
+        function showWrongAlert() {
+            var wrongShow = new TimelineMax();
+            wrongShow.set('#wrong-content', {display: 'block', autoAlpha: 1})
+            .fromTo('#wrong-content', 0.6, {autoAlpha: 0, y: -200}, {autoAlpha: 1, y: 0, ease: Back.easeOut.config(1.2)})
+        }
+
+        function hideWrongAlert() {
+            var wrongHide = new TimelineMax({
+                onComplete: showShare
+            });
+            wrongHide.to('#wrong-content', 0.4, {autoAlpha: 0, y: -200, ease: Back.easeIn.config(1.2)})
+            .to('#lm', 0.4, {autoAlpha: 0})
+            .set(['#lm', '#wrong-content'], {display: 'none'})
+        }
+
+        $('#close-right').on('touchstart', hideRightAlert);
+        $('#share-play').on('touchstart', hideWrongAlert);
+
         function showShare() {
             var shareShow = new TimelineMax();
             shareShow.set('#share', {display: 'block', autoAlpha: 1, perspective: 500})
@@ -262,7 +326,9 @@ new mo.Loader(sourceArr,{
         }
 
         function hideShare() {
-            var shareHide = new TimelineMax();
+            var shareHide = new TimelineMax({
+                onComplete: showDice // 这里再次调用摇色子界面
+            });
             shareHide.to(['#share', '#share-arrow', '#share-content'], 0.4, {autoAlpha: 0})
             .set('#share', {display: 'none'})
         }
