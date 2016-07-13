@@ -117,6 +117,10 @@ new mo.Loader(sourceArr,{
         function showDice() {
             if (diceState == 'diceInit') {
                 $('#dice-des').html(''); // 初始将摇色子界面描述清空
+            }else if (diceState == 'LMBL') {
+                $('#dice-des').html('么么哒，咱们换个帅气的姿势<br>再掷一次，好运哦~'); // 摇到罗马巴黎时显示
+            }else if (diceState == 'BLG') {
+                $('#dice-des').html('这是童话城市布拉格，<br>没有什么不可能，Come on'); // 摇到布拉格时显示        
             }
             var diceShow = new TimelineMax();
             diceShow.set('#dice-container', {autoAlpha: 1, display: 'block'})
@@ -218,6 +222,8 @@ new mo.Loader(sourceArr,{
 
         // 隐藏巴黎
         function hideBL() {
+            // 设置diceState
+            diceState = 'LMBL'; // 罗马巴黎
             var blHide = new TimelineMax({
                 onComplete: showDice
             });
@@ -236,6 +242,8 @@ new mo.Loader(sourceArr,{
 
         // 隐藏布拉格
         function hideBLG() {
+            // 设置diceState
+            diceState = 'BLG'; // 布拉格
             var blgHide = new TimelineMax({
                 onComplete: showDice
             });
