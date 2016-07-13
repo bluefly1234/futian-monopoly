@@ -122,7 +122,11 @@ new mo.Loader(sourceArr,{
             }else if (diceState == 'BLG') {
                 $('#dice-des').html('这是童话城市布拉格，<br>没有什么不可能，Come on'); // 摇到布拉格时显示
             }
-            var diceShow = new TimelineMax();
+            var diceShow = new TimelineMax({
+                onComplete: function () {
+                    $('#roll-btn').on('touchstart', goRoll); // 绑定摇色子
+                }
+            });
             diceShow.set('#dice-container', {autoAlpha: 1, display: 'block'})
             .fromTo('#dice-container', 0.6, {autoAlpha: 0, scale: 0}, {autoAlpha: 1, scale: 1, ease: Back.easeOut.config(1.2), force3D: true})
         }
@@ -130,15 +134,17 @@ new mo.Loader(sourceArr,{
         // 关闭掷色子界面
         function closeDice() {
             var diceClose = new TimelineMax({
-                onComplete: showLM
+                delay: 1,
+                onComplete: showBLG
             });
             diceClose.to('#dice-container', 0.6, {autoAlpha: 0, scale: 0, ease: Back.easeIn.config(1.2), force3D: true})
         }
 
-        $('#roll-btn').on('touchstart', goRoll);
+
 
         // 摇色子功能
         function goRoll() {
+            $('#roll-btn').off('touchstart'); // 解绑摇色子
             var diceRoll = new TimelineMax({
                 onComplete: closeDice
             });
@@ -163,7 +169,10 @@ new mo.Loader(sourceArr,{
         function showYD() {
             var ydShow = new TimelineMax();
             ydShow.set('#yd', {autoAlpha: 1, display: 'block'})
-            .fromTo('#yd', 0.5, {autoAlpha: 0}, {autoAlpha: 1})
+            .to('#mcar', 0.4, {autoAlpha: 0})
+            .set('#mcar', {top: '62px', left: '258px'})
+            .to('#mcar', 0.4, {autoAlpha: 1})
+            .fromTo('#yd', 0.5, {autoAlpha: 0}, {autoAlpha: 1}, '+=0.6')
         }
 
         // 隐藏雅典
@@ -181,7 +190,10 @@ new mo.Loader(sourceArr,{
         function showMNH() {
             var mnhShow = new TimelineMax();
             mnhShow.set('#mnh', {autoAlpha: 1, display: 'block'})
-            .fromTo('#mnh', 0.5, {autoAlpha: 0}, {autoAlpha: 1})
+            .to('#mcar', 0.4, {autoAlpha: 0})
+            .set('#mcar', {top: '314px', left: '51px'})
+            .to('#mcar', 0.4, {autoAlpha: 1})
+            .fromTo('#mnh', 0.5, {autoAlpha: 0}, {autoAlpha: 1}, '+=0.6')
         }
 
         // 隐藏慕尼黑
@@ -199,7 +211,10 @@ new mo.Loader(sourceArr,{
         function showHNW() {
             var hnwShow = new TimelineMax();
             hnwShow.set('#hnw', {autoAlpha: 1, display: 'block'})
-            .fromTo('#hnw', 0.5, {autoAlpha: 0}, {autoAlpha: 1})
+            .to('#mcar', 0.4, {autoAlpha: 0})
+            .set('#mcar', {top: '802px', left: '253px'})
+            .to('#mcar', 0.4, {autoAlpha: 1})
+            .fromTo('#hnw', 0.5, {autoAlpha: 0}, {autoAlpha: 1}, '+=0.6')
         }
 
         // 隐藏汉诺威
@@ -217,7 +232,10 @@ new mo.Loader(sourceArr,{
         function showBL() {
             var blShow = new TimelineMax();
             blShow.set('#bl', {autoAlpha: 1, display: 'block'})
-            .fromTo('#bl', 0.5, {autoAlpha: 0}, {autoAlpha: 1})
+            .to('#mcar', 0.4, {autoAlpha: 0})
+            .set('#mcar', {top: '498px', left: '351px'})
+            .to('#mcar', 0.4, {autoAlpha: 1})
+            .fromTo('#bl', 0.5, {autoAlpha: 0}, {autoAlpha: 1}, '+=0.6')
         }
 
         // 隐藏巴黎
@@ -237,7 +255,10 @@ new mo.Loader(sourceArr,{
         function showBLG() {
             var blgShow = new TimelineMax();
             blgShow.set('#blg', {autoAlpha: 1, display: 'block'})
-            .fromTo('#blg', 0.5, {autoAlpha: 0}, {autoAlpha: 1})
+            .to('#mcar', 0.4, {autoAlpha: 0})
+            .set('#mcar', {top: '615px', left: '156px'})
+            .to('#mcar', 0.4, {autoAlpha: 1})
+            .fromTo('#blg', 0.5, {autoAlpha: 0}, {autoAlpha: 1}, '+=0.6')
         }
 
         // 隐藏布拉格
