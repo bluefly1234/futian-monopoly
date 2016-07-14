@@ -12,7 +12,7 @@ var sourceArr = [
     'images/cover-bg.jpg',
     'images/bl.png',
     'images/blg.png',
-    'images/btns-s5c195e389e.png',
+    'images/btns-s8d558e6529.png',
     'images/car.png',
     'images/close-btn.png',
     'images/dice-s71513b1403.png',
