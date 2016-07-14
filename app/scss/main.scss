@@ -167,16 +167,25 @@ body {
 }
 
 #cover-logo {
-    top: 40px;
-    left: 37px;
+    top: 22px;
+    left: 32px;
     $logo: '../images/logo.png';
     width: image-width($logo);
     height: image-height($logo);
     background-image: url($logo);
 }
 
+#cover-tag {
+    bottom: 12px;
+    left: 431px;
+    $tag: '../images/tag.png';
+    width: image-width($tag);
+    height: image-height($tag);
+    background-image: url($tag);
+}
+
 #earth {
-    top: 128px;
+    top: 76px;
     left: 22px;
     $earth: '../images/earth.png';
     width: image-width($earth);
@@ -185,7 +194,7 @@ body {
 }
 
 #slogan {
-    top: 295px;
+    top: 266px;
     left: 58px;
     $slogan: '../images/slogan.png';
     width: image-width($slogan);
@@ -194,7 +203,7 @@ body {
 }
 
 #cover-car {
-    top: 496px;
+    top: 480px;
     left: 52px;
     $car: '../images/car.png';
     width: image-width($car);
@@ -203,7 +212,7 @@ body {
 }
 
 #start-btn {
-    top: 900px;
+    bottom: 58px;
     left: 163px;
     $start-btn: '../images/start-btn.png';
     width: image-width($start-btn);
@@ -212,7 +221,7 @@ body {
 }
 
 #rule-btn {
-    top: 43px;
+    top: 71px;
     left: 367px;
     $rule-btn: '../images/rule-btn.png';
     width: image-width($rule-btn);
@@ -445,6 +454,39 @@ $btns-sprite-dimensions: true;
     height: image-height($share-content);
     background-image: url($share-content);
 }
+
+// misc sprite 设置
+$misc-layout:smart;
+$misc-spacing:10px;
+$misc-sprite-dimensions: true;
+@import "misc/*.png";
+@include  all-misc-sprites;
+
+// music=======================================================================
+#music-control {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 58px;
+    height: 58px;
+    margin: 24px;
+    visibility: hidden;
+}
+
+#music-control-main {
+    position: absolute;
+    @extend .misc-music-bg;
+}
+
+.music-control-icon {
+    position: absolute;
+    @extend .misc-music-icon;
+    top: 50%;
+    left: 50%;
+    @include transform(translate3d(-50%, -50%, 0));
+}
+// music=======================================================================
 
 #cover, #rule, #game, #dice-container, #yd, #mnh, #hnw, #bl, #blg, #lm, #right-content, #wrong-content, #share {
     display: none;

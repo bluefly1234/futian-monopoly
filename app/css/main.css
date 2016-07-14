@@ -386,23 +386,31 @@ body {
 }
 
 #cover-logo {
-  top: 40px;
-  left: 37px;
-  width: 235px;
-  height: 89px;
+  top: 22px;
+  left: 32px;
+  width: 571px;
+  height: 41px;
   background-image: url("../images/logo.png");
 }
 
+#cover-tag {
+  bottom: 12px;
+  left: 431px;
+  width: 183px;
+  height: 70px;
+  background-image: url("../images/tag.png");
+}
+
 #earth {
-  top: 128px;
+  top: 76px;
   left: 22px;
   width: 608px;
-  height: 564px;
+  height: 595px;
   background-image: url("../images/earth.png");
 }
 
 #slogan {
-  top: 295px;
+  top: 266px;
   left: 58px;
   width: 541px;
   height: 237px;
@@ -410,7 +418,7 @@ body {
 }
 
 #cover-car {
-  top: 496px;
+  top: 480px;
   left: 52px;
   width: 557px;
   height: 404px;
@@ -418,7 +426,7 @@ body {
 }
 
 #start-btn {
-  top: 900px;
+  bottom: 58px;
   left: 163px;
   width: 312px;
   height: 99px;
@@ -426,7 +434,7 @@ body {
 }
 
 #rule-btn {
-  top: 43px;
+  top: 71px;
   left: 367px;
   width: 232px;
   height: 74px;
@@ -725,6 +733,47 @@ body {
   width: 490px;
   height: 218px;
   background-image: url("../images/share-content.png");
+}
+
+.misc-sprite, .misc-music-bg, #music-control-main, .misc-music-icon, .music-control-icon {
+  background-image: url('../images/misc-s84e93b9506.png');
+  background-repeat: no-repeat;
+}
+
+.misc-music-bg, #music-control-main {
+  background-position: 0 -31px;
+  height: 58px;
+  width: 58px;
+}
+
+.misc-music-icon, .music-control-icon {
+  background-position: 0 0;
+  height: 31px;
+  width: 19px;
+}
+
+#music-control {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 58px;
+  height: 58px;
+  margin: 24px;
+  visibility: hidden;
+}
+
+#music-control-main {
+  position: absolute;
+}
+
+.music-control-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate3d(-50%, -50%, 0);
+  -ms-transform: translate3d(-50%, -50%, 0);
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
 }
 
 #cover, #rule, #game, #dice-container, #yd, #mnh, #hnw, #bl, #blg, #lm, #right-content, #wrong-content, #share {
